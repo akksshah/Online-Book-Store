@@ -32,8 +32,8 @@
 											echo '<p>'.$name.'</p>';
 											echo '<h2>Author : '.$author.'</h2>';
 											echo '<h2>'.$cost.'</h2>';
-
-										echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+										echo "<a href='shop.php?id=$id' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
 									echo	'</div>';
 								echo	'</div>';
 								echo '</div>';
