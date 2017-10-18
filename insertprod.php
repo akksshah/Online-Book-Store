@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+<?php
+	include("include/db.php")
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>HAS Shoppe</title>
+    <title>insert</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -124,177 +127,52 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
-					<div class="left-sidebar">
-						<h2>Category</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											First Year
-										</a>
-									</h4>
-								</div>
-								<div id="sportswear" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Semester 1 </a></li>
-											<li><a href="#">Semester 2</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Computers
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											IT
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											EXTC
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											MECHANICAL
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">GRE</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">GMAT</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">TOEFL</a></h4>
-								</div>
-							</div>
-						</div><!--/category-products-->
-						
-						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-					
-					</div>
-				</div>
+				
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Products</h2>
-						
-
-
-
-
-						
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-						
-					
+						<h2 class="title text-center"> Add Products</h2>
+	                    <form action="insertprod.php" id="main-contact-form" class="contact-form row" name="insertprodform" method="post" enctype="multipart/form-data">
+	                        <div class="form-group col-md-3">
+	                            <input type="number" name="semesterYear" class="form-control" required placeholder="Semester Year">
+	                        </div>
+	                        <div class="form-group col-md-3">
+	                            <input type="number" name="semesterNumber" class="form-control" required placeholder="Semester number">
+	                        </div>
+	                        <div class="form-group col-md-3">
+	                            <input type="text" name="department" class="form-control" required placeholder="department">
+	                        </div>
+	                        <div class="form-group col-md-3">
+	                            <input type="text" name="university" class="form-control" required placeholder="university">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="subject" class="form-control" required placeholder="subject">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="bookname" class="form-control" required placeholder="Name of the book">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="author" class="form-control" required placeholder="Author">
+	                        </div>
+	                        <div class="form-group col-md-2">
+	                            <input type="number" name="cost" class="form-control" required placeholder="Cost of the book">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="publisher" class="form-control" required placeholder="publisher">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="file" name="imgurl" class="form-control" required placeholder="image url please">
+	                        </div>
+	                        <div class="form-group col-md-2">
+	                            <input type="text" name="edition" class="form-control" placeholder="edition">
+	                        </div>
+	                        <div class="form-group col-md-12">
+                            <textarea name="description" id="description" class="form-control" rows="8" placeholder="Book description here"></textarea>
+                        </div>
+	                        <div class="form-group col-md-12">
+	                            <input type="submit" name="insertprod" class="btn btn-primary pull-right" value="Insert Product Now ?">
+	                        </div>
+                    </form>
 				</div>
 			</div>
 		</div>
@@ -388,3 +266,30 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
+<?php
+	if(isset($_POST['insertprod'])){
+		$con = mysqli_connect("localhost","root","","hasstore");
+		$semesterYear = $_POST['semesterYear'];
+		$semesterNumber = $_POST['semesterNumber'];
+		$department = $_POST['department'];
+		$university = $_POST['university'];
+		$subject = $_POST['subject'];
+		$bookname = $_POST['bookname'];
+		$author = $_POST['author'];
+		$cost = $_POST['cost'];
+		$publisher = $_POST['publisher'];
+		$imgurl = $_FILES['imgurl']['name'];
+		$imgurltemp = $_FILES['imgurl']['tmp_name'];
+		$edition = $_POST['edition'];
+		$description = $_POST['description'];
+
+		echo $insertpro = "insert into products(year,semester,department,university,subject,name,author,cost,publisher,imgurl,edition,description) values('$semesterYear','$semesterNumber','$department','$university','$subject','$bookname','$author','$cost','$publisher','$imgurl','$edition','$description')";
+
+		$insertproductindb = mysqli_query($con,$insertpro);
+		if(insertproductindb){
+			echo "<script>alert('Successfully added')</script>";
+			echo "<script>window.open('insertprod.php','self')</script>";
+		}
+	}
+?>
