@@ -267,6 +267,7 @@
                       <li>Shipping Cost <span>Free</span></li>
                       <li>Total <span>'.$total_cost.'</span></li>
                     </ul>
+                      <a class="btn btn-default update" href="shop.php">Continue Shopping</a>
                       <a class="btn btn-default update" href="">Update</a>
                       <a class="btn btn-default check_out" href="">Check Out</a>
                   </div>
