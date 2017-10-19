@@ -122,7 +122,9 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
+	<?php
+		cart();
+	?>
 	
 	<section>
 		<div class="container">
@@ -134,112 +136,24 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+										<a data-toggle="collapse" data-parent="#accordian" href="#FirstYear">
 											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
 											First Year
 										</a>
 									</h4>
 								</div>
-								<div id="sportswear" class="panel-collapse collapse">
+								<div id="FirstYear" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Semester 1 </a></li>
-											<li><a href="#">Semester 2</a></li>
+											<li><a href="#" id="FirstYear1">Semester 1 </a></li>
+											<li><a href="#" id="FirstYear2">Semester 2</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Computers
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											IT
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											EXTC
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											MECHANICAL
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Sem 3</a></li>
-											<li><a href="#">Sem 4</a></li>
-											<li><a href="#">Sem 5</a></li>
-											<li><a href="#">Sem 6</a></li>
-											<li><a href="#">Sem 7</a></li>
-											<li><a href="#">Sem 8</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							<?php
+								displayCat()
+							?>
 
 							<div class="panel panel-default">
 								<div class="panel-heading">
