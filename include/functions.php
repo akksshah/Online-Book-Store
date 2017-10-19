@@ -1,6 +1,6 @@
 <?php 
     function display(){
-				$con = mysqli_connect("localhost","root","","hasstore");
+				$con = mysqli_connect("localhost","test","pass123","hasstore");
 				$get_prod = "select * from products";
  				$run_prod = mysqli_query($con,$get_prod);
   			while($row_prod = mysqli_fetch_array($run_prod)){
