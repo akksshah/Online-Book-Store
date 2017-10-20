@@ -6,11 +6,12 @@ function removalofpro(prid){
 }
 function increaseqty(prid,quan){
 	var xhttp = new XMLHttpRequest();
+	var x = "include/increase.php?pid="+prid+"&quan="+quan;
 	xhttp.open("GET", "include/increase.php?pid="+prid+"&quan="+quan, true);
 	xhttp.send();
-	alert("de dana dan");
+	alert(x);
 	window.open('cart.php','_self');
 }
-function insertintocart(pid){
+function insertintocart(){
 	alert("insert?");
 }

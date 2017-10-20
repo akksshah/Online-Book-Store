@@ -149,7 +149,7 @@
                 echo '</td>';
                 echo '<td class="cart_quantity">';
                   echo '<div class="cart_quantity_button">';
-                  echo '<a class="cart_quantity_up" href=""> + </a>';
+                  echo '<button class="cart_quantity_up" onclick="increaseqty('.$id.','.$qty.')"> + </button>';
                     echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$qty.'" autocomplete="off" size="2" align="center" id="updateqtyvalue">';
                     echo '<a class="cart_quantity_down" href=""> - </a>';
                   echo '</div>';
