@@ -132,18 +132,73 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
+							<td class="image" align="center">Item</td>
 							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
-							<td class="total">Total</td>
-							<td></td>
+							<td class="price" align="center">Price</td>
+							<td class="quantity" align="center">Quantity</td>
+							<td class="total" align="center">Total</td>
+							<td align="center">Remove</td>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 							include('include/functions.php');
-							displayCartItems();
+							global $con;
+      $ip_add = getIp();
+      $check_pro = "select * from cart where ipadd = '$ip_add'";
+      $run_check = mysqli_query($con, $check_pro);
+      if(mysqli_num_rows($run_check)==0){
+        echo '<div class="heading">';
+        echo '<h3>No items added into the cart!!! Would you like to continue to shop</h3>';
+        echo '<a class="btn btn-default update" href="shop.php">Continue Shopping</a>';
+      echo '</div>';
+      }
+      else{
+        global $con;
+        $ip_add = getIp();
+        $check_pro = "select * from cart where ipadd = '$ip_add'";
+        $run_check = mysqli_query($con, $check_pro);
+        while($row_pro = mysqli_fetch_array($run_check)){
+          $pid = $row_pro['pid'];
+          $qty = $row_pro['qty'];
+          $disp_pro = "select * from products where id = '$pid'";
+          $run_disp = mysqli_query($con,$disp_pro);
+          while($run_disp_pro = mysqli_fetch_array($run_disp)){
+            $id = $run_disp_pro['id']; 
+            $name = $run_disp_pro['name'];
+            $cost = $run_disp_pro['cost']; 
+            $imgurl = $run_disp_pro['imgurl'];
+            $imgurl = "images/final/t/".$imgurl;
+            $total = $qty * $cost;
+            echo '<tr>';
+                echo '<td class="cart_product">';
+                  echo '<a href=""><img  height = "100px"src="'.$imgurl.'" alt=""></a>';
+                echo '</td>';
+                echo '<td class="cart_description">';
+                  echo '<h4><a href="">'.$name.'</a></h4>';
+                  echo "<p>Web ID: HAS$id</p>";
+                echo '</td>';
+                echo '<td class="cart_price" align="center">';
+                  echo '<p>'.$cost.'</p>';
+                echo '</td>';
+                echo '<td class="cart_quantity">';
+                  echo '<div class="cart_quantity_button">';
+                  echo '<a class="cart_quantity_up" href=""> + </a>';
+                    echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$qty.'" autocomplete="off" size="2" align="center" id="updateqtyvalue">';
+                    echo '<a class="cart_quantity_down" href=""> - </a>';
+                  echo '</div>';
+                echo '</td>';
+                echo '<td class="cart_total" align="center">';
+                  echo '<p class="cart_total_price">'.$total.'</p>';
+                echo '</td>';
+                echo '<td class="cart_delete" align="center">';
+                  echo '<button style="background:#FE980F;" class="cart_quantity_delete" onclick="removalofpro('.$id.')"><i class="fa fa-times"></i></button>';
+                echo '</td>';
+              echo '</tr>';
+          }
+          
+        }
+      }
 
 						?>
 					</tbody>
@@ -152,9 +207,12 @@
 		</div>
 	</section> <!--/#cart_items-->
 	<?php
-		cartTotalDisplay();
+		echo '<form method="post" enctype="multipart/form-data">';
+			cartTotalDisplay();
+		echo '</form>';
+		
 	?>
-
+	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-widget">
 			<div class="container">
@@ -232,13 +290,15 @@
 		</div>
 		
 	</footer><!--/Footer-->
+	<button onclick="hell()">test</button>
 	
-
 
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/akks.js"></script>
 </body>
 </html>

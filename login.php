@@ -126,7 +126,7 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#">
+						<form action="login.php" method="post">
 							<input type="text" placeholder="Name" />
 							<input type="email" placeholder="Email Address" />
 							<span>
@@ -143,11 +143,11 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form action="#">
-							<input type="text" placeholder="Name"/>
-							<input type="email" placeholder="Email Address"/>
-							<input type="password" placeholder="Password"/>
-							<button type="submit" class="btn btn-default">Signup</button>
+						<form action="login.php" method="post">
+							<input type="text" id="nname" placeholder="Name"  />
+							<input type="email" id="nemail" placeholder="Email Address" />
+							<input type="password" id="npass" placeholder="Password" />
+							<button type="submit" value="Signup" class="btn btn-default">Register ?</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>
@@ -156,7 +156,7 @@
 	</section><!--/form-->
 	
 	
-		<footer id="footer"><!--Footer-->
+	<footer id="footer"><!--Footer-->
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -244,3 +244,15 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+<?php
+	if(isset($_POST['Signup'])){
+		$con = mysqli_connect("localhost","root","","hasstore");
+		$name = $_POST['nname'];
+		$email = $_POST['nemail'];
+		$password = $_POST['npass'];
+
+		echo '$insert_cust = "insert into cust(name,email,password) values('.$name.','.$email.','.$password.')"';
+		$run_cust = mysqli_query($con, $insert_cust);
+		echo "<script >alert('added')</script>";
+	}
+?>

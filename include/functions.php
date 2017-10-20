@@ -144,21 +144,21 @@
                   echo '<h4><a href="">'.$name.'</a></h4>';
                   echo "<p>Web ID: HAS$id</p>";
                 echo '</td>';
-                echo '<td class="cart_price">';
+                echo '<td class="cart_price" align="center">';
                   echo '<p>'.$cost.'</p>';
                 echo '</td>';
                 echo '<td class="cart_quantity">';
                   echo '<div class="cart_quantity_button">';
-                    echo '<a class="cart_quantity_up" href=""> + </a>';
-                    echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$qty.'" autocomplete="off" size="2">';
+                  echo '<a class="cart_quantity_up" href=""> + </a>';
+                    echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$qty.'" autocomplete="off" size="2" align="center" id="updateqtyvalue">';
                     echo '<a class="cart_quantity_down" href=""> - </a>';
                   echo '</div>';
                 echo '</td>';
-                echo '<td class="cart_total">';
+                echo '<td class="cart_total" align="center">';
                   echo '<p class="cart_total_price">'.$total.'</p>';
                 echo '</td>';
-                echo '<td class="cart_delete">';
-                  echo '<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>';
+                echo '<td class="cart_delete" align="center">';
+                  echo '<button style="background:#FE980F;" class="cart_quantity_delete" onclick="removalofpro('.$id.')" id="'.$id.'"><i class="fa fa-times"></i></button>';
                 echo '</td>';
               echo '</tr>';
           }
@@ -268,7 +268,7 @@
                       <li>Total <span>'.$total_cost.'</span></li>
                     </ul>
                       <a class="btn btn-default update" href="shop.php">Continue Shopping</a>
-                      <a class="btn btn-default update" href="">Update</a>
+                      <input type = "submit" class="btn btn-default update" name="update_cart" value = "Update ?"></button>
                       <a class="btn btn-default check_out" href="">Check Out</a>
                   </div>
                 </div>
