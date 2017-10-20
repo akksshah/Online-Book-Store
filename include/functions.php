@@ -118,6 +118,7 @@
         echo '<h3>No items added into the cart!!! Would you like to continue to shop</h3>';
         echo '<a class="btn btn-default update" href="shop.php">Continue Shopping</a>';
       echo '</div>';
+      echo '<br>';
       }
       else{
         global $con;
@@ -148,11 +149,13 @@
                   echo '<p>'.$cost.'</p>';
                 echo '</td>';
                 echo '<td class="cart_quantity">';
+                  echo '<table align="center"><tr>';
                   echo '<div class="cart_quantity_button">';
-                  echo '<button class="cart_quantity_up" onclick="increaseqty('.$id.','.$qty.')"> + </button>';
-                    echo '<input class="cart_quantity_input" type="text" name="quantity" value="'.$qty.'" autocomplete="off" size="2" align="center" id="updateqtyvalue">';
-                    echo '<a class="cart_quantity_down" href=""> - </a>';
+                  echo '<td><button style="background:#FE980F;" class="cart_quantity_up" onclick="increaseqty('.$id.','.$qty.')"> + </button></td>';
+                    echo '<td><input class="cart_quantity_input" type="text" name="quantity" value="'.$qty.'" autocomplete="off" size="2" align="center" id="updateqtyvalue"></td>';
+                    echo '<td><button style="background:#FE980F;" class="cart_quantity_down" onclick="decreaseqty('.$id.','.$qty.')"> - </button></td>';
                   echo '</div>';
+                  echo '</tr></table>';
                 echo '</td>';
                 echo '<td class="cart_total" align="center">';
                   echo '<p class="cart_total_price">'.$total.'</p>';

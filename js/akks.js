@@ -9,9 +9,12 @@ function increaseqty(prid,quan){
 	var x = "include/increase.php?pid="+prid+"&quan="+quan;
 	xhttp.open("GET", "include/increase.php?pid="+prid+"&quan="+quan, true);
 	xhttp.send();
-	alert(x);
 	window.open('cart.php','_self');
 }
-function insertintocart(){
-	alert("insert?");
+function decreaseqty(prid,quan){
+	var xhttp = new XMLHttpRequest();
+	var x = "include/increase.php?pid="+prid+"&quan="+quan;
+	xhttp.open("GET", "include/decrease.php?pid="+prid+"&quan="+quan, true);
+	xhttp.send();
+	window.open('cart.php','_self');
 }
