@@ -23,7 +23,7 @@
                            echo' <div class="product-image-wrapper">';
                                 echo '<div class="single-products">';
                                     echo '<div class="productinfo text-center">';
-                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<img height = "250px" src="'.$imgurl.'" alt="" />';
                                         echo '<h2>'.$cost.'</h2>';
                                         echo '<p>'.$name.'</p>';
 										echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
