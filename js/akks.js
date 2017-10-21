@@ -18,3 +18,9 @@ function decreaseqty(prid,quan){
 	xhttp.send();
 	window.open('cart.php','_self');
 }
+function insertcart(prid){
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "include/insertintocart.php?pid="+prid, true);
+	xhttp.send();
+	alert("Product has been to the cart");
+}

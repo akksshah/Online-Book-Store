@@ -34,7 +34,7 @@
 											echo '<h2>Author : '.$author.'</h2>';
 											echo '<h2>'.$cost.'</h2>';
                     echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
-										echo "<a href='shop.php?id=$id' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
+										echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
 									echo	'</div>';
 								echo	'</div>';
 								echo '</div>';
@@ -270,8 +270,7 @@
                       <li>Shipping Cost <span>Free</span></li>
                       <li>Total <span>'.$total_cost.'</span></li>
                     </ul>
-                      <a class="btn btn-default update" href="shop.php">Continue Shopping</a>
-                      <input type = "submit" class="btn btn-default update" name="update_cart" value = "Update ?"></button>
+                      <a class="btn btn-default update" href="shop.php">Continue Shopping ?</a>
                       <a class="btn btn-default check_out" href="">Check Out</a>
                   </div>
                 </div>
