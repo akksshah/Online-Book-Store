@@ -1,3 +1,3 @@
 <?php
-	$con = mysqli_connect("localhost","root","","hasstore");
+	$con = mysqli_connect("localhost","test","pass123","hasstore");
 ?>

@@ -1,3 +1,6 @@
+<?php
+	include_once "include/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,14 +129,32 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="login.php" method="post">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
+						<form action="include/login.php" method="POST">
+							<input type="email" name="email" placeholder="Email Address">
+							<input type="password" name="pass" id="npass" placeholder="Password">
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in
 							</span>
-							<button type="submit" class="btn btn-default">Login</button>
+							<button type="submit" name="login" class="btn btn-default">Login</button>
+						<?php
+							if(isset($_GET['login']))
+							{
+								$login = mysqli_real_escape_string($con, $_GET['login']);
+								if($login=='emailerror')
+								{
+									echo "<script>";
+									echo 'alert("This email-id is not registered")';
+									echo "</script>";
+								}
+								if($login=='pwderror')
+								{
+									echo "<script>";
+									echo 'alert("Password does not match")';
+									echo "</script>";
+								}
+							}
+						?>
 						</form>
 					</div><!--/login form-->
 				</div>
@@ -143,12 +164,34 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form action="login.php" method="post">
-							<input type="text" id="nname" placeholder="Name"  />
-							<input type="email" id="nemail" placeholder="Email Address" />
-							<input type="password" id="npass" placeholder="Password" />
-							<button type="submit" value="Signup" class="btn btn-default">Register ?</button>
+						<form action="include/signup.php" method="POST">
+							<input type="text" name="uname" placeholder="Name" required="required">
+							<input type="email" name="uemail" placeholder="Email" required="required">
+							<textarea name="address" placeholder="Address" required="required"></textarea>
+							<input type="password" name="pass" id="npass" placeholder="Password">
+							<button type="submit" name="signup" value="Signup" class="btn btn-default">Register ?</button>
+						<?php
+							if(isset($_GET['register']))
+							{
+								$register = mysqli_real_escape_string($con, $_GET['register']);
+								if($register=='usertaken')
+								{
+									echo "<script>";
+									echo 'alert("This email-id has already been registered")';
+									echo "</script>";
+								}
+								if($register=='success')
+								{
+									echo "<script>";
+									echo 'alert("Thank you for registering")';
+									echo "</script>";
+								}
+							}
+
+
+						?>
 						</form>
+
 					</div><!--/sign up form-->
 				</div>
 			</div>
@@ -244,15 +287,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-<?php
-	if(isset($_POST['Signup'])){
-		$con = mysqli_connect("localhost","root","","hasstore");
-		$name = $_POST['nname'];
-		$email = $_POST['nemail'];
-		$password = $_POST['npass'];
-
-		echo '$insert_cust = "insert into cust(name,email,password) values('.$name.','.$email.','.$password.')"';
-		$run_cust = mysqli_query($con, $insert_cust);
-		echo "<script >alert('added')</script>";
-	}
-?>
