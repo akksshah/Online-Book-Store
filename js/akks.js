@@ -1,4 +1,4 @@
-function removalofpro(prid){
+    function removalofpro(prid){
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", "include/remove.php?pid="+prid, true);
 	xhttp.send();
@@ -18,7 +18,7 @@ function decreaseqty(prid,quan){
 	xhttp.send();
 	window.open('cart.php','_self');
 }
-function insertcart(prid){
+function insertcart(prid){                                          
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", "include/insertintocart.php?pid="+prid, true);
 	xhttp.send();
