@@ -1,8 +1,9 @@
 <?php
-	$con = mysqli_connect("localhost","root","","hasstore");
+	session_start();
+    include_once 'db.php';
 	$pid = $_GET['pid'];
-	$ip = getIp();
-	$delete_item = "delete from cart where pid = '$pid' and ipadd = '$ip'";
+    $email =$_SESSION['email'];
+    $delete_item = "delete from cart where pid = '$pid' and ipadd = '$email'";
 	$run_delete = mysqli_query($con, $delete_item);
 	function getIp() {
         $ip = $_SERVER['REMOTE_ADDR'];

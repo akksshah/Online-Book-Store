@@ -1,5 +1,8 @@
 <?php 
     $con = mysqli_connect("localhost","test","pass123","hasstore");
+     if(isset($_SESSION['email']))
+     {$email = $_SESSION['email'];
+    }
     function display(){
 				global $con;
 				$get_prod = "select * from products";
@@ -110,8 +113,9 @@
 
     function displayCartItems(){
       global $con;
+      global $email;
       $ip_add = getIp();
-      $check_pro = "select * from cart where ipadd = '$ip_add'";
+      $check_pro = "select * from cart where ipadd = '$email'";
       $run_check = mysqli_query($con, $check_pro);
       if(mysqli_num_rows($run_check)==0){
         echo '<div class="heading">';
@@ -123,7 +127,7 @@
       else{
         global $con;
         $ip_add = getIp();
-        $check_pro = "select * from cart where ipadd = '$ip_add'";
+        $check_pro = "select * from cart where ipadd = '$email'";
         $run_check = mysqli_query($con, $check_pro);
         while($row_pro = mysqli_fetch_array($run_check)){
           $pid = $row_pro['pid'];
