@@ -22,7 +22,7 @@
       			$edition = $row_prod['edition'];
         		$description = $row_prod['description'];
         		$imgurl = "images/final/t/".$imgurl;
-        			echo '<div class="col-sm-4">';
+        			echo '<div class="col-sm-3">';
                            echo' <div class="product-image-wrapper">';
                                 echo '<div class="single-products">';
                                     echo '<div class="productinfo text-center">';
