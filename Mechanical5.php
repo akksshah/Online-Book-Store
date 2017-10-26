@@ -168,7 +168,7 @@
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Products</h2>
 						<?php 
-							display()
+							displayMechanical5();
 			 			?>
 					
 				</div>
