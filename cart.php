@@ -156,9 +156,10 @@
 		</div>
 	</section> <!--/#cart_items-->
 	<?php
-		echo '<form method="post" enctype="multipart/form-data">';
+		/*echo '<form method="post" enctype="multipart/form-data">';*/
+			
 			cartTotalDisplay();
-		echo '</form>';
+		/*echo '</form>';*/
 		
 	?>
 	

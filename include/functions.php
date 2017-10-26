@@ -5,7 +5,7 @@
     }
     function display(){
 				global $con;
-				$get_prod = "select * from products";
+				$get_prod = "select * from products order by rand() limit 21";
  				$run_prod = mysqli_query($con,$get_prod);
   			while($row_prod = mysqli_fetch_array($run_prod)){
     	    	$id = $row_prod['id'];
@@ -22,13 +22,19 @@
       			$edition = $row_prod['edition'];
         		$description = $row_prod['description'];
         		$imgurl = "images/final/t/".$imgurl;
-        			echo '<div class="col-sm-3">';
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+        			echo '<div class="col-sm-4">';
                            echo' <div class="product-image-wrapper">';
                                 echo '<div class="single-products">';
                                     echo '<div class="productinfo text-center">';
-                                        echo '<img height = "250px" src="'.$imgurl.'" alt="" />';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
                                         echo '<h2>'.$cost.'</h2>';
-                                        echo '<p>'.$name.'</p>';
+                                        echo '<p>'.$testname.'</p>';
 										echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
 									echo '</div>';
 									echo '<div class="product-overlay">';
@@ -43,6 +49,7 @@
 									echo	'</div>';
 								echo	'</div>';
 								echo '</div>';
+            
 						echo	'</div>';
 						echo '</div>';
           }
@@ -178,15 +185,16 @@
 
     function cartTotalDisplay(){
       global $con;
-      $ip_add = getIp();
-      $check_pro = "select * from cart where ipadd = '$ip_add'";
+      global $email;
+      $ip_add = $email;
+      $check_pro = "select * from cart where ipadd = '$email'";
       $run_check = mysqli_query($con, $check_pro);
       if(mysqli_num_rows($run_check)==0){
       }
       else{
         global $con;
         $ip_add = getIp();
-        $check_pro = "select * from cart where ipadd = '$ip_add'";
+        $check_pro = "select * from cart where ipadd = '$email'";
         $run_check = mysqli_query($con, $check_pro);
         $total = 0;
         $tax = 0;
