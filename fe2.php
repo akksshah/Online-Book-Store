@@ -147,7 +147,7 @@
 									<div class="panel-body">
 										<ul>
 											<li><a href="fe1.php" id="FirstYear1">Semester 1 </a></li>
-											<li><a href="fe2.php" id="FirstYear2">Semester 2</a></li>
+											<li><a href="#" id="FirstYear2">Semester 2</a></li>
 										</ul>
 									</div>
 								</div>
@@ -168,7 +168,7 @@
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Products</h2>
 						<?php 
-							display()
+							displayfe2();
 			 			?>
 					
 				</div>

@@ -153,7 +153,7 @@
 								</div>
 							</div>
 							<?php
-								displayCat()
+								displayIT7();
 							?>
 						</div><!--/category-products-->
 						

@@ -28,7 +28,7 @@
                 $testname = substr($name, 0,27);
                 $testname = "".$testname."...";
             }
-        			echo '<div class="col-sm-3">';
+        			echo '<div class="col-sm-4">';
                            echo' <div class="product-image-wrapper">';
                                 echo '<div class="single-products">';
                                     echo '<div class="productinfo text-center">';
@@ -63,6 +63,7 @@
       while($row_prod = mysqli_fetch_array($run_prod)){
         $id = $row_prod['id'];
         $name = $row_prod['name'];
+        $testurl = "" .$name;
         echo '<div class="panel panel-default">';
                 echo '<div class="panel-heading">';
                   echo '<h4 class="panel-title">';
@@ -75,12 +76,12 @@
                 echo '<div id="'.$name.'" class="panel-collapse collapse">';
                   echo '<div class="panel-body">';
                     echo '<ul>';
-                      echo '<li><a href="#" id="s3">Sem 3</a></li>';
-                      echo '<li><a href="#" id="s4">Sem 4</a></li>';
-                      echo '<li><a href="#" id="s5">Sem 5</a></li>';
-                      echo '<li><a href="#" id="s6">Sem 6</a></li>';
-                      echo '<li><a href="#" id="s7">Sem 7</a></li>';
-                      echo '<li><a href="#" id="s8">Sem 8</a></li>';
+                      echo '<li><a href="'.$testurl.'3.php" id="s3">Sem 3</a></li>';
+                      echo '<li><a href="'.$testurl.'4.php" id="s4">Sem 4</a></li>';
+                      echo '<li><a href="'.$testurl.'5.php" id="s5">Sem 5</a></li>';
+                      echo '<li><a href="'.$testurl.'6.php" id="s6">Sem 6</a></li>';
+                      echo '<li><a href="'.$testurl.'7.php" id="s7">Sem 7</a></li>';
+                      echo '<li><a href="'.$testurl.'8.php" id="s8">Sem 8</a></li>';
                     echo '</ul>';
                   echo '</div>';
                 echo '</div>';
@@ -292,5 +293,755 @@
             </div>
           </section><!--/#do_action-->';
       }
+    }
+
+
+
+
+
+
+
+
+
+
+    function displayfe1(){
+        global $con;
+        $get_prod = "select * from products where year=1 and semester=1";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayfe2(){
+        global $con;
+        $get_prod = "select * from products where year=1 and semester=2";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayComps3(){
+        global $con;
+        $get_prod = "select * from products where department='Comps' and semester=3";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayComps4(){
+        global $con;
+        $get_prod = "select * from products where department='Comps' and semester=4";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayComps5(){
+        global $con;
+        $get_prod = "select * from products where department='Comps' and semester=5";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayComps6(){
+        global $con;
+        $get_prod = "select * from products where department='Comps' and semester=6";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayComps7(){
+        global $con;
+        $get_prod = "select * from products where department='Comps' and semester=6";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+    function displayComps8(){
+        global $con;
+        $get_prod = "select * from products where department='Comps' and semester=8";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayIT3(){
+        global $con;
+        $get_prod = "select * from products where department='IT' and semester=3";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayIT4(){
+        global $con;
+        $get_prod = "select * from products where department='IT' and semester=4";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayIT5(){
+        global $con;
+        $get_prod = "select * from products where department='IT' and semester=5";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayIT6(){
+        global $con;
+        $get_prod = "select * from products where department='IT' and semester=6";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayIT7(){
+        global $con;
+        $get_prod = "select * from products where department='IT' and semester=7";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
+    }
+
+    function displayIT8(){
+        global $con;
+        $get_prod = "select * from products where department='IT' and semester=8";
+        $run_prod = mysqli_query($con,$get_prod);
+        while($row_prod = mysqli_fetch_array($run_prod)){
+            $id = $row_prod['id'];
+            $year = $row_prod['year'];
+            $semester = $row_prod['semester'];
+            $department = $row_prod['department'];
+            $university = $row_prod['university'];
+            $subject = $row_prod['subject'];
+            $name = $row_prod['name'];
+            $author = $row_prod['author'];
+            $cost = $row_prod['cost'];
+            $publisher = $row_prod['publisher'];
+            $imgurl = $row_prod['imgurl'];
+            $edition = $row_prod['edition'];
+            $description = $row_prod['description'];
+            $imgurl = "images/final/t/".$imgurl;
+            $testname = $name;
+            $testnamesize = strlen($testname);
+            if($testnamesize>30){
+                $testname = substr($name, 0,27);
+                $testname = "".$testname."...";
+            }
+              echo '<div class="col-sm-4">';
+                           echo' <div class="product-image-wrapper">';
+                                echo '<div class="single-products">';
+                                    echo '<div class="productinfo text-center">';
+                                        echo '<img height = "300px" src="'.$imgurl.'" alt="" />';
+                                        echo '<h2>'.$cost.'</h2>';
+                                        echo '<p>'.$testname.'</p>';
+                    echo '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>';
+                  echo '</div>';
+                  echo '<div class="product-overlay">';
+                    echo '<div class="overlay-content">';
+                      echo '<p>'.$name.'</p>';
+                      echo '<h2>Author : '.$author.'</h2>';
+                      echo '<h2>'.$cost.'</h2>';
+                    echo "<a href='product-details.php?id=$id' class='btn btn-default add-to-cart'><i class='fa'></i>View Details</a>";
+                    if (isset($_SESSION['email'])){
+                      echo '<button class="btn btn-default add-to-cart" onclick="insertcart('.$id.')"><i class="fa fa-shopping-cart"></i>Add to cart</button>';
+                    }
+                  echo  '</div>';
+                echo  '</div>';
+                echo '</div>';
+            
+            echo  '</div>';
+            echo '</div>';
+          }
+                                        
     }
 ?>
