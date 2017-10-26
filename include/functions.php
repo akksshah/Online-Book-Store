@@ -5,7 +5,7 @@
     }
     function display(){
 				global $con;
-				$get_prod = "select * from products";
+				$get_prod = "select * from products order by rand() limit 21";
  				$run_prod = mysqli_query($con,$get_prod);
   			while($row_prod = mysqli_fetch_array($run_prod)){
     	    	$id = $row_prod['id'];

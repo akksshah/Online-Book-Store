@@ -39,7 +39,7 @@ if (isset($_POST['login']))
 
 
 
-				if($_SESSION['email']=='admin')
+				if($_SESSION['email']=='admin@gmail.com')
 				{
 					header("Location: ../insertprod.php");//admin pages
 				}
