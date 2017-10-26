@@ -40,7 +40,7 @@ if (isset($_POST['login']))
 
 				if($_SESSION['email']=='admin')
 				{
-					header("Location: ../review.php");//admin pages
+					header("Location: ../insertprod.php");//admin pages
 				}
 				else
 				{
