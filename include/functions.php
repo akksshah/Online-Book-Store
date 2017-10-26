@@ -5,7 +5,7 @@
     }
     function display(){
 				global $con;
-				$get_prod = "select * from products order by rand() limit 21";
+				$get_prod = "select * from products";
  				$run_prod = mysqli_query($con,$get_prod);
   			while($row_prod = mysqli_fetch_array($run_prod)){
     	    	$id = $row_prod['id'];
@@ -28,7 +28,7 @@
                 $testname = substr($name, 0,27);
                 $testname = "".$testname."...";
             }
-        			echo '<div class="col-sm-4">';
+        			echo '<div class="col-sm-3">';
                            echo' <div class="product-image-wrapper">';
                                 echo '<div class="single-products">';
                                     echo '<div class="productinfo text-center">';
