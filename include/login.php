@@ -35,6 +35,7 @@ if (isset($_POST['login']))
 				//Log in the user here
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['email'] = $row['email'];
+				$_SESSION['address'] = $row['address'];
 
 
 

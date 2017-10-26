@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+<?php
+	include("include/functions.php");
+	include("include/db.php");
+	session_start();
+
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -129,101 +135,66 @@
 				</ol>
 			</div><!--/breadcrums-->
 
-			<div class="step-one">
-				<h2 class="heading">Step1</h2>
-			</div>
-			<div class="checkout-options">
-				<h3>New User</h3>
-				<p>Checkout options</p>
-				<ul class="nav">
-					<li>
-						<label><input type="checkbox"> Register Account</label>
-					</li>
-					<li>
-						<label><input type="checkbox"> Guest Checkout</label>
-					</li>
-					<li>
-						<a href=""><i class="fa fa-times"></i>Cancel</a>
-					</li>
-				</ul>
-			</div><!--/checkout-options-->
+<?php
+$email = $_SESSION['email'];
+$name = $_SESSION['name'];
+$address = $_SESSION['address'];
+?>
 
-			<div class="register-req">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-			</div><!--/register-req-->
 
-			<div class="shopper-informations">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="shopper-info">
-							<p>Shopper Information</p>
-							<form>
-								<input type="text" placeholder="Display Name">
-								<input type="text" placeholder="User Name">
-								<input type="password" placeholder="Password">
-								<input type="password" placeholder="Confirm password">
-							</form>
-							<a class="btn btn-primary" href="">Get Quotes</a>
-							<a class="btn btn-primary" href="">Continue</a>
-						</div>
-					</div>
-					<div class="col-sm-5 clearfix">
-						<div class="bill-to">
-							<p>Bill To</p>
-							<div class="form-one">
-								<form>
-									<input type="text" placeholder="Company Name">
-									<input type="text" placeholder="Email*">
-									<input type="text" placeholder="Title">
-									<input type="text" placeholder="First Name *">
-									<input type="text" placeholder="Middle Name">
-									<input type="text" placeholder="Last Name *">
-									<input type="text" placeholder="Address 1 *">
-									<input type="text" placeholder="Address 2">
-								</form>
-							</div>
-							<div class="form-two">
-								<form>
-									<input type="text" placeholder="Zip / Postal Code *">
-									<select>
-										<option>-- Country --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<select>
-										<option>-- State / Province / Region --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<input type="password" placeholder="Confirm password">
-									<input type="text" placeholder="Phone *">
-									<input type="text" placeholder="Mobile Phone">
-									<input type="text" placeholder="Fax">
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="order-message">
-							<p>Shipping Order</p>
-							<textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-							<label><input type="checkbox"> Shipping to bill address</label>
-						</div>	
-					</div>					
+	<section>
+		<div class="container">
+			<div class="row">
+				
+	
+				<div class="col-sm-12 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center"> Checkout ?</h2>
+	                    <form action="insertprod.php" id="main-contact-form" class="contact-form row" name="insertprodform" method="post" enctype="multipart/form-data">
+	                        <div class="form-group col-md-3">
+	                            <input type="number" name="semesterYear" class="form-control" required placeholder="<?php echo $abc[0]['name']; ?>">
+	                        </div>
+	                        <div class="form-group col-md-3">
+	                            <input type="number" name="semesterNumber" class="form-control" required placeholder="Semester number">
+	                        </div>
+	                        <div class="form-group col-md-3">
+	                            <input type="text" name="department" class="form-control" required placeholder="department">
+	                        </div>
+	                        <div class="form-group col-md-3">
+	                            <input type="text" name="university" class="form-control" required placeholder="university">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="subject" class="form-control" required placeholder="subject">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="bookname" class="form-control" required placeholder="Name of the book">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="author" class="form-control" required placeholder="Author">
+	                        </div>
+	                        <div class="form-group col-md-2">
+	                            <input type="number" name="cost" class="form-control" required placeholder="Cost of the book">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="text" name="publisher" class="form-control" required placeholder="publisher">
+	                        </div>
+	                        <div class="form-group col-md-4">
+	                            <input type="file" name="imgurl" class="form-control" required placeholder="image url please">
+	                        </div>
+	                        <div class="form-group col-md-2">
+	                            <input type="text" name="edition" class="form-control" placeholder="edition">
+	                        </div>
+	                        <div class="form-group col-md-12">
+                            <textarea name="description" id="description" class="form-control" rows="8" placeholder="Book description here"></textarea>
+                        </div>
+	                        <div class="form-group col-md-12">
+	                            <input type="submit" name="insertprod" class="btn btn-primary pull-right" value="Insert Product Now ?">
+	                        </div>
+                    </form>
 				</div>
 			</div>
+		</div>
+	</section>
 			<div class="review-payment">
 				<h2>Review & Payment</h2>
 			</div>

@@ -215,7 +215,7 @@
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Aakash Shah</h4>
-                                                <p>Bol na aunty au kya</p>
+                                                <p>Akks</p>
                                             </div>
 
                                         </div>
@@ -228,7 +228,7 @@
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Hriti Shah</h4>
-                                                <p>Gormint Lady</p>
+                                                <p>Hrits</p>
                                             </div>
 
                                         </div>
@@ -241,7 +241,7 @@
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Shanay Sanghvi</h4>
-                                                <p>Meena Boy</p>
+                                                <p>Shanzii</p>
                                             </div>
                                         </div>
                                     </div>
@@ -259,7 +259,7 @@
                 <div class="contact-form">
                     <h2 class="title text-center">Get In Touch</h2>
                     <div class="status alert alert-success" style="display: none"></div>
-                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                    <form action="contact-us.php" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
                         <div class="form-group col-md-6">
                             <input type="text" name="name" class="form-control" required="required" placeholder="Name">
                         </div>
@@ -273,7 +273,7 @@
                             <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
                         </div>
                         <div class="form-group col-md-12">
-                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                            <input type="submit" name="insertmes" class="btn btn-primary pull-right" value="get in touch">
                         </div>
                     </form>
                 </div>
@@ -462,3 +462,16 @@
 </body>
 
 </html>
+<?php
+    if(isset($_POST['insertmes'])){
+        $con = mysqli_connect("localhost","root","","hasstore");
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+
+        $insertmessage = "insert into gettouch(name, email, subject, message) values('$name','$email','$subject','$message')";
+        $runins = mysqli_query($con,$insertmessage);
+        echo '<script>alert("added")</script>';
+    }
+?>
