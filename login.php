@@ -164,7 +164,7 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form action="include/signup.php" method="POST">
+						<form action="include/register.php" method="POST">
 							<input type="text" name="uname" placeholder="Name" required="required">
 							<input type="email" name="uemail" placeholder="Email" required="required">
 							<textarea name="address" placeholder="Address" required="required"></textarea>
