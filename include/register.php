@@ -11,7 +11,6 @@ if (isset($_POST['signup'])) //checking if register button has been pressed
 	include_once 'db.php'; //including connection 
 
 
-
 	$email = mysqli_real_escape_string($con, $_POST['uemail']);
 	$name = mysqli_real_escape_string($con, $_POST['uname']);
 	$pwd = mysqli_real_escape_string($con, $_POST['pass']);
@@ -22,10 +21,10 @@ if (isset($_POST['signup'])) //checking if register button has been pressed
 
 	$sql = "SELECT * FROM users WHERE email='$email'";
 
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($con, $sql);
 
 	$resultCheck = mysqli_num_rows($result);
-
+	
 	
 
 	if ($resultCheck > 0) 
@@ -55,7 +54,7 @@ if (isset($_POST['signup'])) //checking if register button has been pressed
 
 			$sql = "INSERT INTO cust (name,address,email,password) VALUES ('$name', '$address', '$email', '$hashedPwd');";
 
-			mysqli_query($conn, $sql);
+			mysqli_query($con, $sql);
 
 			header("Location: ../index.php");	//done - change the link to a new page which displays the message that you have been registered and click on this link to log in
 

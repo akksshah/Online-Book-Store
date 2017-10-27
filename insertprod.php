@@ -7,7 +7,7 @@
 	}
 	else
 	{
-		echo '<a href="404.html"></a>';
+		header("Location: ./404.php");
 	}
 ?>
 <html lang="en">

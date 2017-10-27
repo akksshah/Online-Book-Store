@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <?php
-	include("include/functions.php")
+	include("include/functions.php");
+	session_start();
 ?>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
+<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
 				<div class="row">
@@ -67,10 +68,19 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<?php					
+										if (isset($_SESSION['email'])) 
+                    						  echo '<li><a href="#"><i class="fa fa-lock"></i>'.$_SESSION['name'].'</a></li>';
+                    					else
+                    						echo '<li><a href="#"><i class="fa fa-user"></i> Account</a></li>';
+                    					?>
+								<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+									<?php					
+										if (isset($_SESSION['email'])) 
+                    						  echo '<li><a href="include/logout.php"><i class="fa fa-lock"></i>Log out</a></li>';
+                    					else
+                    						echo '<li><a href="login.php"><i class="fa fa-lock"></i>Log in</a></li>';
+                    					?>                     
 							</ul>
 						</div>
 					</div>
@@ -92,24 +102,15 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								<li><a href="#" class="active">Home</a></li>
+								<li class="dropdown"><a href="shop.php">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
+                                        <li><a href="shop.html">Products</a></li> 
 										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+										
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="contact-us.html">Contact Us ?</a></li>
 							</ul>
 						</div>
 					</div>
@@ -122,7 +123,7 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
+		
 	
 	<section>
 		<div class="container">
@@ -306,11 +307,42 @@
 													echo '<span>';
 														echo '<div class="col-sm-12"><span>Cost : '.$cost.'</span></div>';
 														echo '<label>Quantity:</label>';
-														echo '<input type="text" value="3" />';
-														echo '<button type="button" class="btn btn-default cart">';
-															echo '<i class="fa fa-shopping-cart"></i>';
-															echo 'Add to cart';
-														echo '</button>';
+														echo '<input type="text" value="1" />';
+														if(isset($_SESSION['email']))
+														{
+															$email=$_SESSION['email'];
+															//echo $email;
+															$sql2="SELECT count(*) as num from cart where ipadd='$email' and pid='$id'";
+															echo $sql2;
+															$result = mysqli_query($con, $sql2);
+															//$resultCheck = mysqli_num_rows($result);
+															echo mysqli_error($con);
+															$row2 = mysqli_fetch_assoc($result);
+															echo $row2['num'];
+															if ($row2==0) //if email-id not found
+															{
+														
+																echo '<button type="button" onclick="insert('.$id.')" class="btn btn-default cart">';
+																echo '<i class="fa fa-shopping-cart"></i>';
+																echo 'Add to cart';
+																echo '</button>';
+															}
+															else
+															{
+																echo '<p class="btn btn-default cart">';
+																echo '<i class="fa fa-shopping-cart"></i>';
+																echo 'Added to cart';
+																echo '</p>';
+															}
+														}
+														else
+														{
+															echo '<button type="button" onclick="check()" class="btn btn-default cart">';
+																echo '<i class="fa fa-shopping-cart"></i>';
+																echo 'Add to cart';
+															echo '</button>';
+														}
+
 													echo '</span>';
 													echo '<p><b>Availability:</b> In Stock</p>';
 													echo '<p><b>Condition:</b> New</p>';
@@ -409,7 +441,26 @@
 	</footer><!--/Footer-->
 	
 
-  
+  <script>
+  	function insert(prid){                                          
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "include/insertintocart.php?pid="+prid, true);
+	xhttp.send();
+	alert("Product has been to the cart");
+}
+  function check()
+  {
+    var a = confirm("Please Log-in First to Add to cart");
+    if (a == true) 
+    {
+        window.location.href = "login.php";
+    } 
+    else 
+    {
+        window.location.href = "#";
+    }
+  }  
+  </script>
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
