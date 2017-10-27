@@ -313,13 +313,14 @@
 															$email=$_SESSION['email'];
 															//echo $email;
 															$sql2="SELECT count(*) as num from cart where ipadd='$email' and pid='$id'";
-															echo $sql2;
+															//echo $sql2;
 															$result = mysqli_query($con, $sql2);
 															//$resultCheck = mysqli_num_rows($result);
-															echo mysqli_error($con);
+															//echo mysqli_error($con);
 															$row2 = mysqli_fetch_assoc($result);
-															echo $row2['num'];
-															if ($row2==0) //if email-id not found
+															$numrows =  $row2['num'];
+															//echo "$numrows";
+															if ($numrows<1) //if email-id not found
 															{
 														
 																echo '<button type="button" onclick="insert('.$id.')" class="btn btn-default cart">';

@@ -14,5 +14,6 @@
 	}
 	$delcart = "delete from cart where ipadd = '$email'";
 	$rundel = mysqli_query($con,$delcart);
+	echo '<script>alert("Taking you to payment portal")</script>';
 	echo '<script>window.open("index.php","_self")</script>';
 ?>
