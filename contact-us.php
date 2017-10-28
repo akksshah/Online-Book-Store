@@ -100,7 +100,7 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="#" class="active">Home</a></li>
+                                <li><a href="index.php" class="active">Home</a></li>
                                 <li class="dropdown"><a href="shop.php">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.php">Products</a></li> 
@@ -108,7 +108,7 @@
                                         
                                     </ul>
                                 </li> 
-                                <li><a href="contact-us.php">Contact Us ?</a></li>
+                                <li><a href="#">Contact Us ?</a></li>
                             </ul>
                         </div>
                     </div>
