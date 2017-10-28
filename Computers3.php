@@ -29,7 +29,7 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
+<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
 				<div class="row">
@@ -105,12 +105,12 @@
 								<li><a href="#" class="active">Home</a></li>
 								<li class="dropdown"><a href="shop.php">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
+                                        <li><a href="shop.php">Products</a></li> 
+										<li><a href="cart.php">Cart</a></li> 
 										
                                     </ul>
                                 </li> 
-								<li><a href="contact-us.html">Contact Us ?</a></li>
+								<li><a href="contact-us.php">Contact Us ?</a></li>
 							</ul>
 						</div>
 					</div>
@@ -123,6 +123,7 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
+
 	<?php
 		cart();
 	?>

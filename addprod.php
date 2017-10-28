@@ -27,7 +27,7 @@
 <!--/head-->
 
 <body>
-   <header id="header"><!--header-->
+    <header id="header"><!--header-->
         <div class="header_top"><!--header_top-->
             <div class="container">
                 <div class="row">
@@ -121,7 +121,7 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-
+>
 
     <div id="contact-page" class="container">
         <div class="bg">
@@ -142,7 +142,7 @@
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Aakash Shah</h4>
-                                                <p>Akks</p>
+                                                <p>Bol na aunty au kya</p>
                                             </div>
 
                                         </div>
@@ -155,7 +155,7 @@
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Hriti Shah</h4>
-                                                <p>Hrits</p>
+                                                <p>Gormint Lady</p>
                                             </div>
 
                                         </div>
@@ -168,7 +168,7 @@
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Shanay Sanghvi</h4>
-                                                <p>Shanzii</p>
+                                                <p>Meena Boy</p>
                                             </div>
                                         </div>
                                     </div>
@@ -186,67 +186,26 @@
                 <div class="contact-form">
                     <h2 class="title text-center">Get In Touch</h2>
                     <div class="status alert alert-success" style="display: none"></div>
-                    <form action="contact-us.php" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                        <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                        <div class="form-group col-md-2">
+                            <input type="number" name="semesterYear" class="form-control" required="required" placeholder="Semester Year">
                         </div>
-                        <div class="form-group col-md-6">
-                            <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                        <div class="form-group col-md-2">
+                            <input type="number" name="semesterNumber" class="form-control" required="required" placeholder="Semester number">
                         </div>
-                        <div class="form-group col-md-12">
-                            <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                        <div class="form-group col-md-2">
+                            <input type="text" name="university" class="form-control" required="required" placeholder="university">
                         </div>
                         <div class="form-group col-md-12">
                             <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
                         </div>
                         <div class="form-group col-md-12">
-                            <input type="submit" name="insertmes" class="btn btn-primary pull-right" value="get in touch">
+                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="contact-info">
-                    <h2 class="title text-center">Contact Info</h2>
-                    <address>
-						<p>HAS Shoppe</p>
-						<p>Dwarkadas J Sanghvi College Of Engineering,</p>
-						<p>Plot U-15, Bhaktivedanta Marg, Vile Parle - West</p>
-						<p>Mumbai - 400089
-							<p>Mobile: +91 9699 669 012</p>
-							<p>Email: akks.shah1997@gmail.com</p>
-					</address>
-                    <div class="social-networks">
-                        <h2 class="title text-center">Social Networking</h2>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-    </div>
-    <!--/#contact-page-->
 
     <footer id="footer">
         <!--Footer-->
@@ -389,16 +348,3 @@
 </body>
 
 </html>
-<?php
-    if(isset($_POST['insertmes'])){
-        $con = mysqli_connect("localhost","root","","hasstore");
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $subject = $_POST['subject'];
-        $message = $_POST['message'];
-
-        $insertmessage = "insert into gettouch(name, email, subject, message) values('$name','$email','$subject','$message')";
-        $runins = mysqli_query($con,$insertmessage);
-        echo '<script>alert("added")</script>';
-    }
-?>
