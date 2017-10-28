@@ -138,11 +138,11 @@
                             <div class="inner_w3l_agile_grids">
                                 <div class="col-md-4 team-grids">
                                     <div class="thumbnail team-w3agile">
-                                        <img src="DSCN1851.jpg" class="img-responsive" alt="">
+                                        <img src="DSCN1851.jpg" height="400" class="img-responsive" alt="">
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Aakash Shah</h4>
-                                                <p>Akks</p>
+                                                <p>Middleware developer</p>
                                             </div>
 
                                         </div>
@@ -151,11 +151,11 @@
 
                                 <div class="col-md-4 team-grids">
                                     <div class="thumbnail team-w3agile">
-                                        <img src="images/t2.jpg" class="img-responsive" alt="">
+                                        <img height="400px" src="unnamed.jpg" class="img-responsive" alt="">
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Hriti Shah</h4>
-                                                <p>Hrits</p>
+                                                <p>Graphics Design Designer</p>
                                             </div>
 
                                         </div>
@@ -164,11 +164,11 @@
 
                                 <div class="col-md-4 team-grids">
                                     <div class="thumbnail team-w3agile">
-                                        <img src="images/t1.jpg" class="img-responsive" alt="">
+                                        <img height="400px" src="FB_IMG_1509185771779.jpg" class="img-responsive" alt="">
                                         <div class="social-icons team-icons right-w3l fotw33">
                                             <div class="caption">
                                                 <h4>Shanay Sanghvi</h4>
-                                                <p>Shanzii</p>
+                                                <p>Database administrator</p>
                                             </div>
                                         </div>
                                     </div>
