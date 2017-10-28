@@ -164,9 +164,94 @@
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Products</h2>
+						<h2 class="title text-center">Product Details</h2>
 						<?php 
-							display()
+							if(isset($_GET['id'])){
+								$proid = $_GET['id'];
+								$con = mysqli_connect("localhost","root","","hasstore");
+								$get_prod = "select * from products where id = '$proid'";
+				 				$run_prod = mysqli_query($con,$get_prod);
+
+				  				while($row_prod = mysqli_fetch_array($run_prod)){
+					    	    	$id = $row_prod['id'];
+					        		$year = $row_prod['year'];
+					        		$semester = $row_prod['semester'];
+					       	 		$department = $row_prod['department'];
+				 	    		    $university = $row_prod['university'];
+					 	        	$subject = $row_prod['subject'];
+					 		        $name = $row_prod['name'];
+					        		$author = $row_prod['author'];
+					    	    	$cost = $row_prod['cost'];
+					       			$publisher = $row_prod['publisher'];
+					       			$imgurl = $row_prod['imgurl'];
+					      			$edition = $row_prod['edition'];
+					        		$description = $row_prod['description'];
+					        		$imgurl = "images/final/t/".$imgurl;
+					        			echo '<div class="col-sm-9 padding-right">';
+											echo '<div class="product-details"><!--product-details-->';
+												echo '<div class="col-sm-5">';
+													echo '<div class="view-product">';
+														echo '<img height="300px" src="'.$imgurl.'" alt="" />';
+													echo '</div>';
+
+												echo '</div>';
+												echo '<div class="col-sm-7">';
+													echo '<div class="product-information"><!--/product-information-->';
+														echo '<img src="images/product-details/new.jpg" class="newarrival" alt="" />';
+														echo '<h2>'.$name.'</h2>';
+														echo '<p>Web ID: HAS '.$id.'</p>';
+													echo '<span>';
+														echo '<div class="col-sm-12"><span>Cost : '.$cost.'</span></div>';
+														echo '<label>Quantity:</label>';
+														echo '<input type="text" value="1" />';
+														if(isset($_SESSION['email']))
+														{
+															$email=$_SESSION['email'];
+															//echo $email;
+															$sql2="SELECT count(*) as num from cart where ipadd='$email' and pid='$id'";
+															//echo $sql2;
+															$result = mysqli_query($con, $sql2);
+															//$resultCheck = mysqli_num_rows($result);
+															//echo mysqli_error($con);
+															$row2 = mysqli_fetch_assoc($result);
+															$numrows =  $row2['num'];
+															//echo "$numrows";
+															if ($numrows<1) //if email-id not found
+															{
+														
+																echo '<button type="button" onclick="insert('.$id.')" class="btn btn-default cart">';
+																echo '<i class="fa fa-shopping-cart"></i>';
+																echo 'Add to cart';
+																echo '</button>';
+															}
+															else
+															{
+																echo '<p class="btn btn-default cart">';
+																echo '<i class="fa fa-shopping-cart"></i>';
+																echo 'Added to cart';
+																echo '</p>';
+															}
+														}
+														else
+														{
+															echo '<button type="button" onclick="check()" class="btn btn-default cart">';
+																echo '<i class="fa fa-shopping-cart"></i>';
+																echo 'Add to cart';
+															echo '</button>';
+														}
+
+													echo '</span>';
+													echo '<p><b>Availability:</b> In Stock</p>';
+													echo '<p><b>Condition:</b> New</p>';
+													echo '<p><b>Brand:</b> Hriti Aakash Shanay</p>';
+													echo '<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>';
+													echo $description;
+												echo '</div><!--/product-information-->';
+											echo '</div>';
+										echo '</div><!--/product-details-->';
+									echo '</div>';
+			          			}
+		      				}
 			 			?>
 					
 				</div>
