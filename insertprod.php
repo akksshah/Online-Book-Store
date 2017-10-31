@@ -181,6 +181,11 @@
 	                        <div class="form-group col-md-12">
 	                            <input type="submit" name="insertprod" class="btn btn-primary pull-right" value="Insert Product Now ?">
 	                        </div>
+	                    </form>
+	                    <form method="post" action="order.php">
+	                        <div class="form-group col-md-12">
+	                            <input type="submit" name="ordering" class="btn btn-primary pull-right" value="View Orders ?">
+	                        </div>
                     </form>
 				</div>
 			</div>
@@ -265,7 +270,11 @@
 		
 	</footer><!--/Footer-->
 	
-
+	<script>
+		function ordersinadmin(){
+			window.Location="order.php";
+		}
+	</script>
   
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
